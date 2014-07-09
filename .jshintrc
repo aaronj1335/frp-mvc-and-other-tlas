@@ -1,0 +1,28 @@
+{
+  "bitwise": true,
+  "camelcase": true,
+  "curly": false,
+  "eqeqeq": true,
+  "forin": false,
+  "freeze": true,
+  "latedef": true,
+  "newcap": false,
+  "noarg": true,
+  "noempty": true,
+  "nonbsp": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "maxlen": 80,
+  "eqnull": true,
+  "browser": true,
+  "globals": {
+    "console": false,
+    "$": false,
+    "Rx": false,
+    "_": false,
+    "React": false,
+    "module": false
+  }
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>reactive simon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <script id=game-template type=x-template>
+    <h3>
+      Order:
+    </h3>
+
+    <ul>
+      <% _.each(data, function(num) { %>
+        <li>
+            <%= num %>
+        </li>
+      <% }); %>
+    </ul>
+
+    <div class=number-buttons>
+      <% _.each(data, function(num, i) { %>
+        <button type=button value=<%= i %>>
+          <%= i %>
+        </button>
+      <% }); %>
+    </div>
+  </script>
+
+  <script id=result-template type=x-template>
+    <% if (data) { %>
+      <h1>you won</h1>
+    <% } else { %>
+      <h1>really?</h1>
+    <% } %>
+  </script>
+
+  <body>
+    <div class=game></div>
+
+    <div class=result></div>
+
+    <button type=button name=new-game>new game</button>
+
+    <script src="../vendor/jquery-2.1.1.js"></script>
+    <script src="../vendor/lodash-2.4.1.js"></script>
+    <script src=../vendor/rx.all.js></script>
+    <script src=../lib/common.js></script>
+    <script src=index.js></script>
+  </body>
+</html>

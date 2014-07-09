@@ -1,0 +1,15 @@
+{
+  "name": "frp-mvc-and-other-tlas",
+  "version": "0.0.0",
+  "description": "combining frp with mvc",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.8.0"
+  }
+}
