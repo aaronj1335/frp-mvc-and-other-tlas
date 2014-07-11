@@ -31,17 +31,19 @@ it's surprising that such succinct code can accomplish such messy tasks with so 
 - isolate your application state
 - don't repeat yourself
 
-frp should be combined with the solid design patterns we know from mvc, and while those little demos seem to imply that frp supplants mvc, they're quite different in nature. frp proposes a small set of primitives for managing state with data flow. mvc on the other hand separates application concerns.
+frp should be combined with the solid design patterns we know from mvc. while those little demos seem to imply that frp supplants mvc, the two quite different. frp proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
 
 in a good mvc app the state is in the model, so let's look at how we can use frp for the "M" and keep that separate from the "V".
 
-*sidenote*: there's different flavors of mvc. this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
+*terminology*: there are different flavors of mvc, and this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
 
 ## spaghetti
 
 we'll start with an example of a simon-says game, implemented in RxJS, but without any separation of concerns.
 
 the game will show the user a sequence of numbers and a set of numbered buttons. the player pushes the buttons in the order of the numbers. they win if they get them all correct, otherwise it's a loss. they can restart the game at any time.
+
+<iframe src="http://aaronstacy.com/frp-mvc-and-other-tlas/spaghetti" width=150 height=165></iframe>
 
 the code can be found in `index.js`, but i've extracted the relevant part below. it reads top to bottom, so i've just explained the code iniline.
 
