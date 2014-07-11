@@ -1,6 +1,6 @@
-# frp, mvc, and other tla's
+# reactive programming and mvc
 
-this repo shows an example of a simon-says game using frp (via [RxJS][]), and then the same implementation but with an mvc-driven separation of concerns.
+this repo shows an example of a simon-says game using reactive programming (via [RxJS][]), and then the same implementation but with an mvc-driven separation of concerns.
 
 ### running
 
@@ -10,8 +10,8 @@ this repo shows an example of a simon-says game using frp (via [RxJS][]), and th
 
 then visit:
 
-- [http://localhost:1336/spaghetti/][]: just frp without mvc-driven separation of concerns
-- [http://localhost:1336/vanilla-js-views/][]: frp with an mvc-driven separation of concerns, but no ui-framework
+- [http://localhost:1336/spaghetti/][]: just reactive without mvc-driven separation of concerns
+- [http://localhost:1336/vanilla-js-views/][]: reactive with an mvc-driven separation of concerns, but no ui-framework
 - [http://localhost:1336/react/][]: same as above, but using [react][] to give a more concrete example
 
 for the latter two, the data model can be found in `lib/common.js`.
