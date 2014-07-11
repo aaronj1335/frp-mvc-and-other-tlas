@@ -21,11 +21,10 @@
         return React.DOM.text();
 
       return DOM.div(null,
-        DOM.h3(null, 'Order'),
         DOM.ul(null,
           this.state.order
-            .map(function(num) {
-              return DOM.li(null, num);
+            .map(function(num, i) {
+              return DOM.li({className: 'i' + i}, num);
             })),
         DOM.div({
             className: 'number-buttons',

@@ -5,16 +5,13 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <title>reactive simon</title>
     <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel=stylesheet href=/css/style.css />
   </head>
 
   <script id=game-template type=x-template>
-    <h3>
-      Order:
-    </h3>
-
     <ul>
-      <% _.each(data, function(num) { %>
-        <li>
+      <% _.each(data, function(num, i) { %>
+        <li class=i<%= i %>>
             <%= num %>
         </li>
       <% }); %>
@@ -38,11 +35,11 @@
   </script>
 
   <body>
+    <button type=button name=new-game>new game</button>
+
     <div class=game></div>
 
     <div class=result></div>
-
-    <button type=button name=new-game>new game</button>
 
     <script src=../vendor/jquery-2.1.1.js></script>
     <script src=../vendor/lodash-2.4.1.js></script>
