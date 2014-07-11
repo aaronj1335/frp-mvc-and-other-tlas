@@ -1,14 +1,14 @@
 $(function() {
   'use strict';
 
-  var gameState = window.gameState;
+  var makeGameState = window.makeGameState;
   var $newGameButton = $('[name=new-game]');
   var $game = $('.game');
   var $result = $('.result');
   var gameTemplate = _.template($('#game-template').text());
   var resultTemplate = _.template($('#result-template').text());
 
-  function showGame(order) {
+  function renderGameAndHideResult(order) {
     $result.empty();
     $game.html(gameTemplate({data: order}));
   }
@@ -29,7 +29,7 @@ $(function() {
   // this is a stream of click events
   var newGameClicks = Rx.Observable.fromEvent($newGameButton, 'click');
 
-  // this ends up being a stream of null's, which fires every time a game
+  // this ends up being a stream of game results, which emits every time a game
   // completes, but the road to get there is a bit complex, so it's explained
   // below
   newGameClicks
@@ -37,26 +37,23 @@ $(function() {
     .map(randomSequenceOfNumbers)
 
     // use the array of numbers as the data to render the game
-    .map(function(order) {
-      showGame(order);
-      return order;
-    })
+    .do(renderGameAndHideResult)
 
     .map(function(order) {
       // for each array of numbers, return an event stream of button-clicks
       return Rx.Observable.fromEvent($game.find('.number-buttons'), 'click')
 
-        // on each click, given the previous state we pass along the
+        // on each click, given the previous state, we pass along the new
         // `gameState`, which contains 2 peices of information:
         //
         // - the original order
         // - the buttons pressed so far
         //
-        // so after this line we get a stream of game-states which fires every
+        // so after this call we get a stream of game-states which emits every
         // time the user clicks a number button
-        .scan(gameState(order), function(state, event) {
+        .scan(makeGameState(order), function(state, event) {
           var val = +$(event.target).val();
-          return gameState(state.order, state.pressed.concat([val]));
+          return makeGameState(state.order, state.pressed.concat([val]));
         })
 
         // we have 2 termination conditions:
@@ -76,7 +73,7 @@ $(function() {
 
         // we only want to concern ourselves with the state of things when the
         // game ends, so this returns a stream of only one game-state, which
-        // fires on the last click
+        // emits on the last click
         .last()
 
         // also end the stream if the user requests a new game. this still
@@ -90,7 +87,7 @@ $(function() {
     // the *inner* streams
     .concatAll()
 
-    .map(showResult)
+    .do(showResult)
 
     // in RxJS, these event streams aren't active til you call something like
     // subscribe or forEach

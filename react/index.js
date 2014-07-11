@@ -1,14 +1,14 @@
 (function(global) {
   'use strict';
 
-  var gameState = global.gameState;
+  var makeGameState = global.makeGameState;
   var DOM = React.DOM;
 
   var Game = React.createClass({
     componentWillMount: function() {
       var replaceState = this.replaceState.bind(this);
 
-      this.props.games.subscribe(_.compose(replaceState, gameState));
+      this.props.games.subscribe(_.compose(replaceState, makeGameState));
       this.props.results.subscribe(_.partial(replaceState, {}, null));
     },
 
@@ -24,7 +24,10 @@
         DOM.ul(null,
           this.state.order
             .map(function(num, i) {
-              return DOM.li({className: 'i' + i}, num);
+              return DOM.li({
+                key: _.uniqueId(),
+                className: 'i' + i
+              }, num);
             })),
         DOM.div({
             className: 'number-buttons',
@@ -32,7 +35,11 @@
           },
           this.state.order
             .map(function(num, i) {
-              return DOM.button({type: 'button', value: i}, i);
+              return DOM.button({
+                key: _.uniqueId(),
+                type: 'button',
+                value: i
+              }, i);
             })));
     }
   });
@@ -40,11 +47,11 @@
   var Result = React.createClass({
     componentWillMount: function() {
       var replaceState = this.replaceState.bind(this);
-      this.props.games.subscribe(_.compose(replaceState, gameState));
+      this.props.games.subscribe(_.compose(replaceState, makeGameState));
       this.props.results.subscribe(replaceState);
     },
 
-    getInitialState: gameState,
+    getInitialState: makeGameState,
 
     render: function() {
       if (!this.state.pressed.length)

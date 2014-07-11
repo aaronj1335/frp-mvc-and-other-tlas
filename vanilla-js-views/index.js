@@ -1,6 +1,7 @@
 (function(global) {
   'use strict';
 
+
   function View(opts) {
     this.$ = $(opts.el);
     this.template = _.template($(opts.template).text());
@@ -9,6 +10,7 @@
   View.prototype.render = function(data) {
     this.$.html(this.template({data: data}));
   };
+
 
   function GameView(opts) {
     View.apply(this, arguments);
@@ -28,6 +30,7 @@
 
   GameView.prototype = Object.create(View.prototype);
 
+
   function ResultView(opts) {
     View.apply(this, arguments);
 
@@ -40,6 +43,7 @@
   }
 
   ResultView.prototype = Object.create(View.prototype);
+
 
   $(function() {
     var games = global.games = global.model.newGameStream();
