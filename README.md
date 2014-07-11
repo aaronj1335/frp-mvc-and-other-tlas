@@ -20,16 +20,22 @@ for the latter two, the data model can be found in `lib/common.js`.
 
 ## motivation
 
-frp demos are breathtaking. two of my favorites are:
+frp demos are impressive. two of my favorites are:
 
 - the [flapjax paper][flapjax]'s [example of drag and drop][flapjax-dnd]
-- [Jafar Husain][]'s example of [an auto-complete widget][netflix-autocomplete]
+- [jafar husain][]'s example of [an auto-complete widget][netflix-autocomplete]
 
-it's impressive that such succinct code can accomplish such messy tasks with so few abstractions.
+it's surprising that such succinct code can accomplish such messy tasks with so few abstractions. but when the elegance combines with unfamiliarity, it's easy to forget that wisdom we've learned through hard years on the front lines of app development:
 
-when the elegance combines with unfamiliarity, it's easy to forget the wisdom we've learned through hard years on the front lines of app development. that battle tested wisdom &mdash; like components need to be composable, decoupled, and testable; don't repeat yourself; isolate your application state, etc. so if we're going to use frp, we should be combining it with the solid design patterns we know from mvc.
+- components need to be composable, decoupled, and testable
+- isolate your application state
+- don't repeat yourself
 
-while those little demos seem to imply that frp supplants mvc, they're quite different in nature. frp proposes a small set of elegant primitives for managing state. mvc on the other hand separates application concerns. in a good mvc app the state is in the model, so let's look at how we can use frp for the 'M' and keep that separate from the 'V'.
+frp should be combined with the solid design patterns we know from mvc, and while those little demos seem to imply that frp supplants mvc, they're quite different in nature. frp proposes a small set of primitives for managing state with data flow. mvc on the other hand separates application concerns.
+
+in a good mvc app the state is in the model, so let's look at how we can use frp for the "M" and keep that separate from the "V".
+
+*sidenote*: there's different flavors of mvc. this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
 
 ## spaghetti
 
@@ -224,3 +230,6 @@ using this design we can create simple views responsible for nothing beyond conv
 [netflix-autocomplete]: https://www.youtube.com/watch?v=XRYN2xt11Ek#t=1243
 [RxJS]: https://github.com/Reactive-Extensions/RxJS
 [react]: http://facebook.github.io/react/
+[http://localhost:1336/spaghetti/]: http://localhost:1336/spaghetti/
+[http://localhost:1336/react/]: http://localhost:1336/react/
+[http://localhost:1336/vanilla-js-views/]: http://localhost:1336/vanilla-js-views/
