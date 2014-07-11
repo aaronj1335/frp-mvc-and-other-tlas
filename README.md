@@ -37,9 +37,7 @@ in a good mvc app the state is in the model, so let's look at how we can use frp
 
 we'll start with an example of a simon-says game<a href=#footnote-1><sup>1</sup></a>, implemented in RxJS, but without any separation of concerns.
 
-the game will show the user a sequence of numbers and a set of numbered buttons. the player pushes the buttons in the order of the numbers. they win if they get them all correct, otherwise it's a loss. they can restart the game at any time. here's an example:
-
-<iframe src="http://aaronstacy.com/frp-mvc-and-other-tlas/spaghetti" width=150 height=165></iframe>
+the game will show the user a sequence of numbers and a set of numbered buttons. the player pushes the buttons in the order of the numbers. they win if they get them all correct, otherwise it's a loss. they can restart the game at any time. [here's an example][example].
 
 i know, i'm horrible at making games.
 
@@ -218,5 +216,6 @@ this design enables simple views responsible for nothing beyond converting the d
 [lawnsea-talk]: https://www.youtube.com/watch?v=D0N1NdE-9u0
 [spaghetti-index]: https://github.com/aaronj1335/frp-mvc-and-other-tlas/blob/master/spaghetti/index.js
 [model]: https://github.com/aaronj1335/frp-mvc-and-other-tlas/blob/master/lib/common.js#L47
+[example]: http://aaronstacy.com/frp-mvc-and-other-tlas/spaghetti/
 [vanilla-view]: https://github.com/aaronj1335/frp-mvc-and-other-tlas/blob/master/vanilla-js-views/index.js
 [react-view]: https://github.com/aaronj1335/frp-mvc-and-other-tlas/blob/master/react/index.js
