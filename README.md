@@ -19,7 +19,7 @@ for the latter two, the data model can be found in `lib/common.js`.
 i wrote up [a post][post] with an in-depth description.
 
 [RxJS]: https://github.com/Reactive-Extensions/RxJS
-[post]: http://aaronstacy.com/writings/frp-mvc-and-other-tlas/
+[post]: http://aaronstacy.com/writings/reactive-programming-and-mvc/
 [http://localhost:1336/spaghetti/]: http://localhost:1336/spaghetti/
 [http://localhost:1336/react/]: http://localhost:1336/react/
 [http://localhost:1336/vanilla-js-views/]: http://localhost:1336/vanilla-js-views/
